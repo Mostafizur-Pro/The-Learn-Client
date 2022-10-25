@@ -4,7 +4,8 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { createGoogle, createGithub, signIn } = useContext(AuthContext);
+  const { createGoogle, createGithub, signIn, setUser } =
+    useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,6 +35,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setUser(user);
       })
       .catch((error) => console.error(error));
   };

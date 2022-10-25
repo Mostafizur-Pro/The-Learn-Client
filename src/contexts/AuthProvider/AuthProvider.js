@@ -1,13 +1,15 @@
-import React, { Children, createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
@@ -16,13 +18,17 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ displayName: "Sohan" });
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   //   Create Email and password
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+  //   Profile photo and name update
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   //   Signin Email and password
@@ -51,12 +57,20 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //   email verify
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("inside auth state change", currentUser);
+      //   console.log("inside auth state change", currentUser);
 
-      if (currentUser === null || currentUser.emailVerified) {
+      //   if (currentUser === null || currentUser.emailVerified) {
+      if (currentUser) {
         setUser(currentUser);
+      } else {
+        setUser("");
       }
       setLoading(false);
     });
@@ -72,7 +86,11 @@ const AuthProvider = ({ children }) => {
     createGithub,
     logout,
     createUser,
+    updateUserProfile,
+    verifyEmail,
     signIn,
+
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
-import { FaOdnoklassniki } from "react-icons/fa";
+
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
@@ -119,9 +119,10 @@ const Header = () => {
             )}
           </>
         </div>
-        <button variant="light" onClick={handleLogOut}>
-          Log out
-        </button>
+        <input type="checkbox" className="toggle" />
+        {/* <button variant="light" onClick={handleLogOut}>
+          Log out O
+        </button> */}
       </div>
     </div>
   );
