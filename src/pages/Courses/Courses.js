@@ -9,7 +9,7 @@ const Courses = () => {
     <div>
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-9">
-          <h2>All Course : {courses.length}</h2>
+          <h2>Total Item : {courses.length}</h2>
           {courses.map((course) => (
             <NewSummary key={course._id} course={course}></NewSummary>
           ))}
