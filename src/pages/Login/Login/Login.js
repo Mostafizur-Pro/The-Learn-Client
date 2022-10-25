@@ -5,7 +5,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { createGoogle, createGithub, signIn, setUser } =
+  const { createGoogle, createGithub, signIn, setLoading setUser } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -29,7 +29,10 @@ const Login = () => {
           navigate(from, { replace: true });
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(()=>{
+        setLoading(false)
+      })
   };
   const handleGoogleSignIn = (event) => {
     event.preventDefault();

@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const { createUser, updateUserProfile, verifyEmail } =
     useContext(AuthContext);
+
+  const notify = () => toast("Wow so easy!");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +27,7 @@ const Register = () => {
         handleEmailVerification();
       })
       .catch((error) => console.error(error));
+    Navigate("/login");
   };
 
   const handleUpdateUserProfile = (name, photoURL) => {
