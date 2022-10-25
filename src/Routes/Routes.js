@@ -5,11 +5,12 @@ import Category from "../pages/Category/Category";
 import Course from "../pages/Courses/Course";
 import Courses from "../pages/Courses/Courses";
 import FAQ from "../pages/FAQ/FAQ";
-import Home from "../pages/Home/Home";
+
 import Login from "../pages/Login/Login/Login";
 
 import Register from "../pages/Login/Register/Register";
 import Profile from "../pages/Profile/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/course/:id",
-        element: <Course></Course>,
+        element: (
+          <PrivateRoute>
+            <Course></Course>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/training/${params.id}`),
       },
