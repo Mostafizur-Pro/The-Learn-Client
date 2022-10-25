@@ -1,22 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { createGoogle, createGithub, signIn } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+  const handleGoogleSignIn = (event) => {
+    event.preventDefault();
+    createGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+  const handleGithubSignIn = (event) => {
+    event.preventDefault();
+    createGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
-        {/* <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Please Login Now !!!</h1>
-        </div> */}
         <form
           onSubmit={handleSubmit}
           className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
@@ -62,13 +86,19 @@ const Login = () => {
               <div className="divider">OR</div>
             </div>
             <div className="form-control mt-3">
-              <button className="btn text-lg btn-outline btn-success capitalize">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn text-lg btn-outline btn-success capitalize"
+              >
                 <FaGoogle />
                 <span className="ml-3">Sign in Google</span>
               </button>
             </div>
             <div className="form-control mt-3">
-              <button className="btn text-lg btn-outline btn-light capitalize">
+              <button
+                onClick={handleGithubSignIn}
+                className="btn text-lg btn-outline btn-light capitalize"
+              >
                 <FaGithub />
                 <span className="ml-3">Sign in GitHub</span>
               </button>

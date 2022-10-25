@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
+import { FaOdnoklassniki } from "react-icons/fa";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -52,7 +65,7 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to="/courses">Courses</Link>
+              <Link to="/">Courses</Link>
             </li>
             <li>
               <Link to="/faq">FAQ</Link>
@@ -60,19 +73,55 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            {/* <li>
-              <Link to="/login">Login</Link>
-            </li> */}
-            {/* <li>
-              <Link to="/register">Register</Link>
-            </li> */}
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn">
-            Login
-          </Link>
+          <>
+            {user?.uid ? (
+              <>
+                <span>{user?.displayName}</span>
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={user?.photoURL} />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link to="/profile" className="justify-between">
+                        Profile
+                        <span className="badge">New</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <a>Settings</a>
+                    </li>
+                    <li>
+                      <button variant="light" onClick={handleLogOut}>
+                        Log out
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link className="btn btn-dark" to="/login">
+                  Login
+                </Link>
+              </>
+            )}
+          </>
         </div>
+        <button variant="light" onClick={handleLogOut}>
+          Log out
+        </button>
       </div>
     </div>
   );
