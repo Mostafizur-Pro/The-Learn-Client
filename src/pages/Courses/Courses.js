@@ -5,9 +5,9 @@ const Courses = () => {
   return (
     <div>
       <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-7">Hi</div>
+        <div class="col-span-9">Hi</div>
 
-        <div class="col-span-5">
+        <div class="col-span-3">
           <RightSideNav></RightSideNav>
         </div>
       </div>
