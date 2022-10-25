@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
   const { createUser, updateUserProfile, verifyEmail } =
     useContext(AuthContext);
-
-  const notify = () => toast("Wow so easy!");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,16 +16,18 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password, name, photoURL);
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
         form.reset();
         handleUpdateUserProfile(name, photoURL);
         handleEmailVerification();
+        alert("Verify your email");
       })
       .catch((error) => console.error(error));
-    Navigate("/login");
   };
 
   const handleUpdateUserProfile = (name, photoURL) => {
@@ -101,6 +101,7 @@ const Register = () => {
                 className="input input-bordered"
               />
             </div>
+            <p>{error}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
