@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
@@ -13,6 +13,8 @@ const Login = () => {
     setLoading,
     setUser,
   } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,16 +28,24 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     // console.log(email, password);
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        console.log("hiuser", user);
         form.reset();
+        setSuccess("Success login");
+
         if (user.emailVerified) {
           navigate(from, { replace: true });
         }
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        setLoginError(
+          "Please confirm your email and password. Please create account"
+        );
+        console.error(error);
+      })
       .finally(() => {
         setLoading(false);
       });
@@ -60,15 +70,15 @@ const Login = () => {
       .catch((error) => console.error(error));
   };
 
-  const handleFacebookSignIn = (event) => {
-    event.preventDefault();
-    createFacebook()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => console.error(error));
-  };
+  // const handleFacebookSignIn = (event) => {
+  //   event.preventDefault();
+  //   createFacebook()
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //     })
+  //     .catch((error) => console.error(error));
+  // };
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -108,6 +118,10 @@ const Login = () => {
                 </a>
               </label>
             </div>
+            <p className="text-green-400">{success}</p>
+            <p className="text-red-400 font-bold">
+              <Link to="/register">{loginError}</Link>
+            </p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
@@ -129,15 +143,6 @@ const Login = () => {
             <div className="form-control mt-3">
               <button
                 onClick={handleGithubSignIn}
-                className="btn text-lg btn-outline btn-light capitalize"
-              >
-                <FaGithub />
-                <span className="ml-3">Sign in GitHub</span>
-              </button>
-            </div>
-            <div className="form-control mt-3">
-              <button
-                onClick={handleFacebookSignIn}
                 className="btn text-lg btn-outline btn-light capitalize"
               >
                 <FaGithub />
