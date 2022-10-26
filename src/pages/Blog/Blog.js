@@ -2,10 +2,10 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="w-6/12 mx-auto text-left">
+    <div className="w-6/12 mx-auto text-left ">
       <div
         tabIndex={0}
-        className="collapse  collapse-open border border-base-300 bg-base-100 rounded-box"
+        className="collapse  collapse-open border bg-inherit border-base-300 bg-base-100 rounded-box"
       >
         <div className="collapse-title text-xl font-medium">What is cors?</div>
         <div className="collapse-content">
@@ -21,7 +21,7 @@ const Blog = () => {
 
       <div
         tabIndex={0}
-        className="collapse mt-5 collapse-open border border-base-300 bg-base-100 rounded-box"
+        className="collapse mt-5 collapse-open border bg-inherit border-base-300 bg-base-100 rounded-box"
       >
         <div className="collapse-title text-xl font-medium">
           Why are you using firebase? What other options do you have to
@@ -49,7 +49,7 @@ const Blog = () => {
       </div>
       <div
         tabIndex={0}
-        className="collapse mt-5 collapse-open border border-base-300 bg-base-100 rounded-box"
+        className="collapse mt-5 collapse-open border bg-inherit border-base-300 bg-base-100 rounded-box"
       >
         <div className="collapse-title text-xl font-medium">
           How does the private route work?
@@ -67,7 +67,7 @@ const Blog = () => {
       </div>
       <div
         tabIndex={0}
-        className="collapse mt-5 collapse-open border border-base-300 bg-base-100 rounded-box"
+        className="collapse mt-5 collapse-open border bg-inherit border-base-300 bg-base-100 rounded-box"
       >
         <div className="collapse-title text-xl font-medium">
           What is Node? How does Node work?

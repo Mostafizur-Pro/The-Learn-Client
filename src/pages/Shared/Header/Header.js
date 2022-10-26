@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
 import "./Header.css";
 
@@ -7,6 +7,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logout, setTheme, theme } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -24,6 +25,7 @@ const Header = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate("/");
       })
       .catch((error) => console.error(error));
   };
@@ -94,7 +96,7 @@ const Header = () => {
                 <span className="text-2xl sm:block hidden">
                   {user?.displayName}
                 </span>
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end bg-inherit">
                   <label
                     tabIndex={0}
                     className="btn btn-ghost btn-circle avatar"
@@ -105,7 +107,7 @@ const Header = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-inherit rounded-box w-52"
                   >
                     <li>
                       <Link to="/profile" className="justify-between">

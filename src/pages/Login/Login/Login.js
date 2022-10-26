@@ -5,8 +5,14 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { createGoogle, createGithub, signIn, setLoading, setUser } =
-    useContext(AuthContext);
+  const {
+    createGoogle,
+    createFacebook,
+    createGithub,
+    signIn,
+    setLoading,
+    setUser,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -54,6 +60,16 @@ const Login = () => {
       .catch((error) => console.error(error));
   };
 
+  const handleFacebookSignIn = (event) => {
+    event.preventDefault();
+    createFacebook()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
@@ -84,7 +100,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered bg-inherit"
               />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
@@ -113,6 +129,15 @@ const Login = () => {
             <div className="form-control mt-3">
               <button
                 onClick={handleGithubSignIn}
+                className="btn text-lg btn-outline btn-light capitalize"
+              >
+                <FaGithub />
+                <span className="ml-3">Sign in GitHub</span>
+              </button>
+            </div>
+            <div className="form-control mt-3">
+              <button
+                onClick={handleFacebookSignIn}
                 className="btn text-lg btn-outline btn-light capitalize"
               >
                 <FaGithub />

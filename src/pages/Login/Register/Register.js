@@ -5,6 +5,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const { createUser, updateUserProfile, verifyEmail } =
     useContext(AuthContext);
 
@@ -16,6 +17,20 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password, name, photoURL);
+
+    if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+      setPasswordError("Please provide at least two uppercase");
+      return;
+    }
+    if (password.length < 6) {
+      setPasswordError("Please Should be at least 6 characters");
+      return;
+    }
+    if (!/(?=.*[!@#$%^*])/.test(password)) {
+      setPasswordError("Please add at least one special character");
+      return;
+    }
+    setPasswordError("");
 
     createUser(email, password)
       .then((result) => {
@@ -77,6 +92,7 @@ const Register = () => {
                 name="photoURL"
                 placeholder="PhotoURL"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -88,6 +104,7 @@ const Register = () => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -99,8 +116,10 @@ const Register = () => {
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
+                required
               />
             </div>
+            <p className="text-red-400">{passwordError}</p>
             <p>{error}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>

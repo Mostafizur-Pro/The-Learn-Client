@@ -8,7 +8,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-inherit ">
         <div className="hero-content flex-col lg:flex-row">
           <img src={user.photoURL} className="max-w-sm rounded-lg shadow-2xl" />
           <div>

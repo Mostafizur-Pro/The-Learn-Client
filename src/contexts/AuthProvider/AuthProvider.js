@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
+  FacebookAuthProvider,
   getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -51,6 +52,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
+  // Facebook add
+  const facebookProvider = new FacebookAuthProvider();
+  const createFacebook = () => {
+    return signInWithPopup(auth, facebookProvider);
+  };
+
   //   Sign Out
   const logout = () => {
     setLoading(true);
@@ -89,6 +96,7 @@ const AuthProvider = ({ children }) => {
     verifyEmail,
     signIn,
     setTheme,
+    createFacebook,
     theme,
 
     loading,
