@@ -1,4 +1,5 @@
 import { createBrowserRouter, Link } from "react-router-dom";
+import AuthProvider from "../contexts/AuthProvider/AuthProvider";
 import Main from "../Layout/Main";
 import Blog from "../pages/Blog/Blog";
 import Category from "../pages/Category/Category";
@@ -34,7 +35,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <Category></Category>,
+        element: (
+          <PrivateRoute>
+            <Category></Category>,
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/categories/${params.id}`),
       },

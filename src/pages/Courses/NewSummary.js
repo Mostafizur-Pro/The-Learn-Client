@@ -7,7 +7,7 @@ const NewSummary = ({ course }) => {
   // console.log({ course });
   return (
     <div className="">
-      <div className="hero mt-5 rounded-3xl  bg-base-200">
+      <div className="hero mt-5 rounded-3xl  bg-red-200">
         <div className="hero-content flex-col  lg:flex-row">
           <img
             src={image}

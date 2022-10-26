@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-ghost-300">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -91,7 +91,9 @@ const Header = () => {
           <>
             {user?.uid ? (
               <>
-                <span>{user?.displayName}</span>
+                <span className="text-2xl sm:block hidden">
+                  {user?.displayName}
+                </span>
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex={0}

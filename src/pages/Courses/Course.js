@@ -6,9 +6,27 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Course = ({ params }) => {
   const course = useLoaderData();
-  console.log("this is course", course);
-  const { cost, rating, total_view, title, image_url, details, duration } =
+  // console.log("this is course", course);
+  const { id, cost, rating, total_view, title, image_url, details, duration } =
     course;
+  // const courses = course;
+
+  const handleDownload = (event) => {
+    console.log("event", event);
+    fetch(`http://localhost:5000/training/${id}`).then((response) => {
+      response.blob().then((blob) => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "SamplePDF.pdf";
+        alink.click();
+        console.log("hihi", alink.download);
+      });
+    });
+  };
+
   return (
     <div>
       <div className="lg:grid lg:grid-cols-12 gap-4 mx-5  sm:none ">
@@ -57,7 +75,7 @@ const Course = ({ params }) => {
                 </div>
               </div>
 
-              <button className="btn btn-primary">
+              <button onClick={handleDownload} className="btn btn-primary">
                 Download PDF <FaDownload />
               </button>
             </div>
