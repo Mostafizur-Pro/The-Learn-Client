@@ -12,7 +12,11 @@ const RightSideNav = () => {
 
   return (
     <div>
-      <h3 className="font-bold mt-2">All Category: {categories.length}</h3>
+      <Link to="/">
+        <h3 className="font-bold mt-2 underline text-2xl text-red-500">
+          All Category
+        </h3>
+      </Link>
       <div>
         {categories.map((category) => (
           <p className=" mt-3" key={category.id}>

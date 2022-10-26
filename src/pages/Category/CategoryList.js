@@ -46,7 +46,7 @@ const CategoryList = ({ course }) => {
             </div>
 
             <button className="btn btn-primary">
-              <Link to={`/course/${_id}`}>Details</Link>
+              <Link to={`/course/${_id}`}>Course Details</Link>
             </button>
           </div>
         </div>

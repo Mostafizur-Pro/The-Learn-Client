@@ -1,11 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
+import "./Header.css";
 
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, setTheme, theme } = useContext(AuthContext);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const handleLogOut = () => {
     logout()
@@ -63,7 +75,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
+          <ul className="menu menu-horizontal p-0 font-bold">
             <li>
               <Link to="/">Courses</Link>
             </li>
@@ -119,7 +131,7 @@ const Header = () => {
             )}
           </>
         </div>
-        <input type="checkbox" className="toggle" />
+        <input onClick={toggleTheme} type="checkbox" className="toggle" />
         {/* <button variant="light" onClick={handleLogOut}>
           Log out O
         </button> */}

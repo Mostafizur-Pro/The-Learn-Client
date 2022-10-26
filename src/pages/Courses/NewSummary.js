@@ -24,7 +24,7 @@ const NewSummary = ({ course }) => {
             </p>
 
             <button className="btn btn-primary">
-              <Link to={`/category/${id}`}>Details</Link>
+              <Link to={`/category/${id}`}>More Couses </Link>
             </button>
           </div>
         </div>

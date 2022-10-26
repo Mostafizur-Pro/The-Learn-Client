@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Link } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../pages/Blog/Blog";
 import Category from "../pages/Category/Category";
@@ -60,5 +60,19 @@ export const router = createBrowserRouter([
         element: <Profile></Profile>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <div className="font-bold text-3xl text-center ">
+        File not found: 404
+        <h1>
+          Please{" "}
+          <Link className="text-red-400" to="/">
+            Click Me!!
+          </Link>
+        </h1>
+      </div>
+    ),
   },
 ]);
