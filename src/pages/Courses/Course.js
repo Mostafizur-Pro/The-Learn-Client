@@ -10,8 +10,11 @@ const Course = ({ params }) => {
   const { cost, rating, total_view, title, image_url, details } = course;
   return (
     <div>
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-9">
+      <div className="lg:grid lg:grid-cols-12 gap-4 mx-5 sm:none ">
+        <div className="col-span-4 lg:col-span-2 mt-5">
+          <RightSideNav></RightSideNav>
+        </div>
+        <div className="col-span-8 ls:col-span-9">
           <div className="hero mt-5  bg-base-200">
             <div className="hero-content flex-col ">
               <img
@@ -47,10 +50,6 @@ const Course = ({ params }) => {
               </button>
             </div>
           </div>
-        </div>
-
-        <div className="col-span-3">
-          <RightSideNav></RightSideNav>
         </div>
       </div>
     </div>
