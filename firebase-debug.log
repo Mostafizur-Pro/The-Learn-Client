@@ -1,0 +1,51 @@
+[debug] [2022-10-27T09:04:22.367Z] ----------------------------------------------------------------------
+[debug] [2022-10-27T09:04:22.369Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mostafizur Rahman\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-27T09:04:22.369Z] CLI Version:   11.15.0
+[debug] [2022-10-27T09:04:22.369Z] Platform:      win32
+[debug] [2022-10-27T09:04:22.369Z] Node Version:  v18.10.0
+[debug] [2022-10-27T09:04:22.370Z] Time:          Thu Oct 27 2022 15:04:22 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-10-27T09:04:22.370Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-27T09:04:22.430Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-27T09:04:22.431Z] > authorizing via signed-in user (mostafizur0195@gmail.com)
+[debug] [2022-10-27T09:04:22.431Z] [iam] checking project the-learn-db700 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-27T09:04:22.432Z] > refreshing access token with scopes: []
+[debug] [2022-10-27T09:04:22.433Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-27T09:04:22.434Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-27T09:04:22.718Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-10-27T09:04:22.718Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-27T09:04:22.725Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/the-learn-db700:testIamPermissions [none]
+[debug] [2022-10-27T09:04:22.725Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/the-learn-db700:testIamPermissions x-goog-quota-user=projects/the-learn-db700
+[debug] [2022-10-27T09:04:22.725Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/the-learn-db700:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-27T09:04:24.290Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/the-learn-db700:testIamPermissions 200
+[debug] [2022-10-27T09:04:24.290Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/the-learn-db700:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-27T09:04:24.291Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/the-learn-db700 [none]
+[debug] [2022-10-27T09:04:24.847Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/the-learn-db700 200
+[debug] [2022-10-27T09:04:24.847Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/the-learn-db700 {"projectId":"the-learn-db700","projectNumber":"981081440351","displayName":"The Learn","name":"projects/the-learn-db700","resources":{"hostingSite":"the-learn-db700"},"state":"ACTIVE","etag":"1_3309ecab-fb7d-4641-b240-72715a9fbfd8"}
+[info] 
+[info] === Deploying to 'the-learn-db700'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-10-27T09:04:24.851Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/the-learn-db700/versions [none]
+[debug] [2022-10-27T09:04:24.851Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/the-learn-db700/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-10-27T09:04:26.591Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/the-learn-db700/versions 200
+[debug] [2022-10-27T09:04:26.591Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/the-learn-db700/versions {"name":"projects/981081440351/sites/the-learn-db700/versions/cb9606df19875a60","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[the-learn-db700]: beginning deploy... 
+[info] i  hosting[the-learn-db700]: found 15 files in build 
+[debug] [2022-10-27T09:04:26.601Z] [hosting] uploading with 200 concurrency
+[debug] [2022-10-27T09:04:26.845Z] [hosting] hash cache [YnVpbGQ] stored for 15 files
+[debug] [2022-10-27T09:04:26.845Z] [hosting][hash queue][FINAL] {"max":239,"min":1,"avg":20.733333333333334,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":243}
+[debug] [2022-10-27T09:04:26.846Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/981081440351/sites/the-learn-db700/versions/cb9606df19875a60:populateFiles [none]
+[debug] [2022-10-27T09:04:26.846Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/981081440351/sites/the-learn-db700/versions/cb9606df19875a60:populateFiles {"files":{"/favicon.ico":"386d30437ca35d4ace10ab768c57c914ec92a0e98a2c7dc780b99c6f3aad94c3","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/asset-manifest.json":"9c22ebe67a8383b8aadeb9436f9be94003d668ca602fac0e9268d8a3c8dc0529","/index.html":"2187c095cde8b57d9fbbe92b4564942aba66a8264cbe127e2db01659b61ac603","/static/js/787.8012d548.chunk.js":"81f6fa58463f32dca66ed42e477cb1a91c3404fa6ad49bcef1a13717bcbc493a","/static/js/787.8012d548.chunk.js.map":"c891264a37242aef8b88c7133e1ee78169cf9ae30e041e04d1ffacbcab3c071b","/static/js/main.a862c30f.js.LICENSE.txt":"f3d94de3dd868a790f5618fd9dc106f2ab2e45151a76a6b2090f0a9c6820c134","/static/media/FAQ.8323a980c18575ba8eb5.webp":"5eb60d7661bb6580ac25e962691e7738a44c10b13315e5e4213f8a93476ec56c","/static/css/main.dfe97caa.css.map":"e7dc93df5e06a430c71e09a52d105fcfa4c2f9f0e445b4a66f36dbc9c9db2cb1","/static/css/main.dfe97caa.css":"6c2681b2e55b2bcaaaa56e34fbd0242e25e43d48cfe1d17f5fb4d873457c1852","/static/js/main.a862c30f.js":"a56a1bed1a8a8f59b2ba05b0600df69684a1a110207ac0389ba4e4f0afb0ceb0","/static/js/main.a862c30f.js.map":"bcee5121dd98bd71bb14a8403a12f9c84623b71d7b90964fdc2e6cd710cd3db4"}}
+[debug] [2022-10-27T09:04:28.150Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/981081440351/sites/the-learn-db700/versions/cb9606df19875a60:populateFiles 200
+[debug] [2022-10-27T09:04:28.150Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/981081440351/sites/the-learn-db700/versions/cb9606df19875a60:populateFiles {"uploadRequiredHashes":["2187c095cde8b57d9fbbe92b4564942aba66a8264cbe127e2db01659b61ac603","a56a1bed1a8a8f59b2ba05b0600df69684a1a110207ac0389ba4e4f0afb0ceb0","bcee5121dd98bd71bb14a8403a12f9c84623b71d7b90964fdc2e6cd710cd3db4","9c22ebe67a8383b8aadeb9436f9be94003d668ca602fac0e9268d8a3c8dc0529"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files"}
+[debug] [2022-10-27T09:04:28.151Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/2187c095cde8b57d9fbbe92b4564942aba66a8264cbe127e2db01659b61ac603 [none]
+[debug] [2022-10-27T09:04:28.151Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/2187c095cde8b57d9fbbe92b4564942aba66a8264cbe127e2db01659b61ac603 [stream]
+[debug] [2022-10-27T09:04:28.151Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/a56a1bed1a8a8f59b2ba05b0600df69684a1a110207ac0389ba4e4f0afb0ceb0 [none]
+[debug] [2022-10-27T09:04:28.151Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/a56a1bed1a8a8f59b2ba05b0600df69684a1a110207ac0389ba4e4f0afb0ceb0 [stream]
+[debug] [2022-10-27T09:04:28.152Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/bcee5121dd98bd71bb14a8403a12f9c84623b71d7b90964fdc2e6cd710cd3db4 [none]
+[debug] [2022-10-27T09:04:28.152Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/bcee5121dd98bd71bb14a8403a12f9c84623b71d7b90964fdc2e6cd710cd3db4 [stream]
+[debug] [2022-10-27T09:04:28.153Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/9c22ebe67a8383b8aadeb9436f9be94003d668ca602fac0e9268d8a3c8dc0529 [none]
+[debug] [2022-10-27T09:04:28.153Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/the-learn-db700/versions/cb9606df19875a60/files/9c22ebe67a8383b8aadeb9436f9be94003d668ca602fac0e9268d8a3c8dc0529 [stream]
+[debug] [2022-10-27T09:04:28.154Z] [hosting][populate queue][FINAL] {"max":1306,"min":1306,"avg":1306,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1310}
+[debug] [2022-10-27T09:04:28.154Z] [hosting] uploads queued: 4

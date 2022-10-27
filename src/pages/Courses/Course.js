@@ -7,8 +7,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 const Course = ({ params }) => {
   const course = useLoaderData();
   // console.log("this is course", course);
-  const { id, cost, rating, total_view, title, image_url, details, duration } =
-    course;
+  const { cost, rating, total_view, title, image_url, details } = course;
   // const courses = course;
 
   const handleDownload = () => {
@@ -30,10 +29,14 @@ const Course = ({ params }) => {
   };
 
   return (
-    <div className="card w-full mx-auto bg-base-100 mx-5 shadow-xl">
+    <div className="card m-none  w-auto rounded-5xl mx-auto bg-base-100 shadow-xl">
       <div className=" flex-col ">
         <figure className="px-10 pt-10">
-          <img src={image_url} alt="" className="rounded-xl" />
+          <img
+            src={image_url}
+            alt=""
+            className="max-w-auto lg:max-w-2xl rounded-xl shadow-3xl"
+          />
         </figure>
         {/* <img
           src={image_url}

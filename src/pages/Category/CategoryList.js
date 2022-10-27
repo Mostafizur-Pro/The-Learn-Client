@@ -12,7 +12,7 @@ const CategoryList = ({ course }) => {
           <img
             src={image_url}
             alt=""
-            className="max-w-sm rounded-lg shadow-2xl"
+            className="max-w-auto lg:max-w-sm rounded-lg shadow-2xl"
           />
           <div className="ml-3">
             <h1 className="text-3xl font-bold">{title}</h1>

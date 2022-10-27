@@ -5,7 +5,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { createGoogle, createGithub, signIn, setLoading } =
+  const { user, createGoogle, createGithub, signIn, setLoading } =
     useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
@@ -31,9 +31,7 @@ const Login = () => {
         form.reset();
         setSuccess("Success login");
 
-        if (user.emailVerified) {
-          navigate(from, { replace: true });
-        }
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setLoginError(
@@ -106,10 +104,14 @@ const Login = () => {
                 </Link>
               </label>
             </div>
-            <p className="text-green-400">{success}</p>
-            <p className="text-red-400 font-bold">
-              <Link to="/register">{loginError}</Link>
-            </p>
+            {user?.displayName ? (
+              <p className="text-green-400">{success}</p>
+            ) : (
+              <p className="text-red-400 font-bold">
+                <Link to="/register">{loginError}</Link>
+              </p>
+            )}
+
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>

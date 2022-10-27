@@ -5,14 +5,14 @@ const NewSummary = ({ course }) => {
   const { id, name, image, detail } = course;
   // console.log({ course });
   return (
-    <div className="flex ">
+    <div className="flex">
       <div className="hero mt-5 rounded-3xl  bg-inherit border-double border-4 border-red-200  ">
         <div className="hero-content flex-col   lg:flex-row">
           <div>
             <img
               src={image}
               alt=""
-              className="max-w-sm rounded-lg shadow-2xl"
+              className="max-w-auto lg:max-w-sm rounded-lg shadow-2xl"
             />
           </div>
           <div className="ml-3">
