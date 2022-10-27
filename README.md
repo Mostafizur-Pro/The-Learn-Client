@@ -1,8 +1,8 @@
-### Client Side Github Link
+### Client Site Github Link
 
 https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Mostafizur-Pro
 
-### Server Side Github Link
+### Server Site Github Link
 
 https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Mostafizur-Pro
 

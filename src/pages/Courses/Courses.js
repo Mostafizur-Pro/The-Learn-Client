@@ -11,7 +11,6 @@ const Courses = () => {
     <div>
       <div className="hero min-h-full md:grid hidden mb-5">
         <div className="hero-content flex-col lg:flex-row">
-          <img alt="" src={image2} className="max-w-sm rounded-lg shadow-2xl" />
           <div className="ml-5 ">
             <h1 className="text-5xl font-bold">
               A board selectoin of Courses!
@@ -24,6 +23,7 @@ const Courses = () => {
               and much more.
             </p>
           </div>
+          <img alt="" src={image2} className="max-w-sm rounded-lg shadow-2xl" />
         </div>
       </div>
 

@@ -7,12 +7,12 @@ const CategoryList = ({ course }) => {
     course;
   return (
     <div className="  ">
-      <div className="hero mt-5 rounded-3xl bg-inherit border-double border-4 border-red-200">
-        <div className="hero-content flex-col  lg:flex-row">
+      <div className="hero mt-5 rounded-3xl  bg-inherit border-double border-4 border-red-200  ">
+        <div className="hero-content flex-col lg:flex-row">
           <img
             src={image_url}
             alt=""
-            className="max-w-sm rounded-lg shadow-3xl"
+            className="max-w-sm rounded-lg shadow-2xl"
           />
           <div className="ml-3">
             <h1 className="text-3xl font-bold">{title}</h1>
@@ -26,10 +26,10 @@ const CategoryList = ({ course }) => {
               <div>
                 <p className="text-orange-400 text-xl mb-2  flex items-center">
                   <span className="font-bold">{rating.number}</span>{" "}
-                  <FaStar className="ml-2" />
-                  <FaStar className="ml-2" />
-                  <FaStar className="ml-2" />
-                  <FaStar className="ml-2" />
+                  <FaStar className="ml-1" />
+                  <FaStar className="ml-1" />
+                  <FaStar className="ml-1" />
+                  <FaStar className="ml-1" />
                   <FaStarHalfAlt className="ml-2" />
                   <span className="ml-2 text-gray-400"> ({total_view})</span>
                 </p>
@@ -37,7 +37,7 @@ const CategoryList = ({ course }) => {
                   {cost} Price
                 </p>
               </div>
-              <div>
+              <div className="min-h-full md:grid hidden">
                 <div className=" text-2xl mb-2 font-bold mr-5">
                   <h3 className="text-green-400">Duration:</h3>
                   <span className="text-red-400">{duration}</span>
