@@ -6,7 +6,6 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
-  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -52,8 +51,6 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  
-
   // Facebook add
   const facebookProvider = new FacebookAuthProvider();
   const createFacebook = () => {
@@ -75,8 +72,8 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       //   console.log("inside auth state change", currentUser);
 
-        setUser(currentUser);
-      
+      setUser(currentUser);
+
       setLoading(false);
     });
 
@@ -94,7 +91,7 @@ const AuthProvider = ({ children }) => {
     logout,
     createUser,
     updateUserProfile,
-    // verifyEmail,
+
     signIn,
     setTheme,
     createFacebook,

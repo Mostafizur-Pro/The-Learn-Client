@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/logo.png";
 import "./Header.css";
 
@@ -102,7 +102,7 @@ const Header = () => {
                     className="btn btn-ghost btn-circle avatar"
                   >
                     <div className="w-10 rounded-full">
-                      <img src={user?.photoURL} />
+                      <img src={user?.photoURL} alt="" />
                     </div>
                   </label>
                   <ul
@@ -116,7 +116,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <a>Settings</a>
+                      <Link>Settings</Link>
                     </li>
                     <li>
                       <button variant="light" onClick={handleLogOut}>
@@ -140,7 +140,6 @@ const Header = () => {
           Log out O
         </button> */}
       </div>
-
     </div>
   );
 };

@@ -5,13 +5,8 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const {
-    createGoogle,    
-    createGithub,
-    signIn,
-    setLoading,
-    setUser,
-  } = useContext(AuthContext);
+  const { createGoogle, createGithub, signIn, setLoading } =
+    useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -67,12 +62,11 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         navigate(from, { replace: true });
-        
+
         // setUser(user);
       })
       .catch((error) => console.error(error));
   };
-
 
   return (
     <div className="hero min-h-screen bg-inherit">
@@ -107,9 +101,9 @@ const Login = () => {
                 className="input input-bordered bg-inherit"
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                <Link className="label-text-alt link link-hover">
                   Forgot password?
-                </a>
+                </Link>
               </label>
             </div>
             <p className="text-green-400">{success}</p>

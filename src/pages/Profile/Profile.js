@@ -10,7 +10,11 @@ const Profile = () => {
     <div>
       <div className="hero min-h-screen bg-inherit ">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={user.photoURL} className="max-w-sm rounded-lg shadow-2xl" />
+          <img
+            src={user.photoURL}
+            alt=""
+            className="max-w-sm rounded-lg shadow-2xl"
+          />
           <div>
             <h1 className="text-4xl mb-3 font-bold">
               Name: {user.displayName}

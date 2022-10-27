@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const NewSummary = ({ course }) => {
   const { id, name, image, detail } = course;

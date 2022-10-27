@@ -6,8 +6,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 const Register = () => {
   const [error, setError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const { createUser, updateUserProfile, verifyEmail } =
-    useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,7 +38,7 @@ const Register = () => {
         setError("");
         form.reset();
         handleUpdateUserProfile(name, photoURL);
-        // handleEmailVerification();
+
         alert("Verify your email");
       })
       .catch((error) => console.error(error));
@@ -56,11 +55,6 @@ const Register = () => {
       .catch((error) => console.error(error));
   };
 
-  // const handleEmailVerification = () => {
-  //   verifyEmail()
-  //     .then(() => {})
-  //     .catch((error) => console.error(error));
-  // };
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">

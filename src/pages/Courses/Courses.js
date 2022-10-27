@@ -2,22 +2,30 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 import NewSummary from "./NewSummary";
+import image2 from "../../assets/images/couses.png";
 
 const Courses = () => {
   const courses = useLoaderData();
   // console.log(courses);
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl ">
-        A broad selection of courses{" "}
-      </h1>
-      <p className="text-center  text-xl">
-        Take one of the range of Python courses and learn how to code using this
-        incredibly useful language.
-      </p>
-      <br />
-
-      
+      <div className="hero min-h-full  mb-5">
+        <div className="hero-content flex-col lg:flex-row">
+          <img alt="" src={image2} className="max-w-sm rounded-lg shadow-2xl" />
+          <div className="ml-5 ">
+            <h1 className="text-5xl font-bold">
+              A board selectoin of Courses!
+            </h1>
+            <p className="py-6">
+              Learn programming with free online courses from real college
+              courses from Harvard, MIT, and more of the world's leading
+              universities. Pick up essential coding skills needed for frontend
+              and/or backend web development, machine learning, IOS, Android,
+              and much more.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div className="lg:grid lg:grid-cols-12 gap-4 mx-5 sm:none ">
         <div className="col-span-4 lg:col-span-2 mt-5">
