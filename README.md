@@ -8,6 +8,17 @@ https://github.com/programming-hero-web-course1/b610-lerning-platform-server-sid
 
 ### Live Website Link
 
+https://the-learn-db700.web.app/
+
+### Project Note :
+
+1. Making a lots of components.
+2. Responsive in project (Mobile and desktop).
+3. Server site data load.
+4. Blog site also added. There are 4 question and answare.
+5. FAQ page : Some Question and answare.
+6. Create a 404 Error Page.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
