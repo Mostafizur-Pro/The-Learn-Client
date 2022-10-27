@@ -22,6 +22,20 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  //   Google Sign In
+  const googleProvider = new GoogleAuthProvider();
+  const createGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  //   GitHub sign In
+  const githubProvider = new GithubAuthProvider();
+  const createGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+
   //   Create Email and password
   const createUser = (email, password) => {
     setLoading(true);
@@ -38,19 +52,7 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  //   Google Sign In
-  const googleProvider = new GoogleAuthProvider();
-  const createGoogle = () => {
-    setLoading(true);
-    return signInWithPopup(auth, googleProvider);
-  };
-
-  //   GitHub sign In
-  const githubProvider = new GithubAuthProvider();
-  const createGithub = () => {
-    setLoading(true);
-    return signInWithPopup(auth, githubProvider);
-  };
+  
 
   // Facebook add
   const facebookProvider = new FacebookAuthProvider();
@@ -65,17 +67,16 @@ const AuthProvider = ({ children }) => {
   };
 
   //   email verify
-  const verifyEmail = () => {
-    return sendEmailVerification(auth.currentUser);
-  };
+  // const verifyEmail = () => {
+  //   return sendEmailVerification(auth.currentUser);
+  // };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       //   console.log("inside auth state change", currentUser);
 
-      if (currentUser === null || currentUser.emailVerified) {
         setUser(currentUser);
-      }
+      
       setLoading(false);
     });
 
@@ -93,7 +94,7 @@ const AuthProvider = ({ children }) => {
     logout,
     createUser,
     updateUserProfile,
-    verifyEmail,
+    // verifyEmail,
     signIn,
     setTheme,
     createFacebook,

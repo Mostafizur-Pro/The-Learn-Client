@@ -6,8 +6,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const {
-    createGoogle,
-    createFacebook,
+    createGoogle,    
     createGithub,
     signIn,
     setLoading,
@@ -20,7 +19,8 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
-  console.log("from", from);
+
+  // console.log("from", from);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,38 +50,32 @@ const Login = () => {
         setLoading(false);
       });
   };
-  const handleGoogleSignIn = (event) => {
-    event.preventDefault();
+  const handleGoogleSignIn = () => {
+    // event.preventDefault();
     createGoogle()
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
-  const handleGithubSignIn = (event) => {
-    event.preventDefault();
+  const handleGithubSignIn = () => {
+    // event.preventDefault();
     createGithub()
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setUser(user);
+        navigate(from, { replace: true });
+        
+        // setUser(user);
       })
       .catch((error) => console.error(error));
   };
 
-  // const handleFacebookSignIn = (event) => {
-  //   event.preventDefault();
-  //   createFacebook()
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user);
-  //     })
-  //     .catch((error) => console.error(error));
-  // };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-inherit">
       <div className="hero-content flex-col ">
         <form
           onSubmit={handleSubmit}

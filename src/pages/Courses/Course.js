@@ -11,8 +11,8 @@ const Course = ({ params }) => {
     course;
   // const courses = course;
 
-  const handleDownload = (event) => {
-    console.log("event", event);
+  const handleDownload = () => {
+    // console.log("event", event);
     fetch(`http://localhost:5000/training/${id}`).then((response) => {
       response.blob().then((blob) => {
         // Creating new object of PDF file

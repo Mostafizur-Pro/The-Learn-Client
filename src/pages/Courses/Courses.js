@@ -17,7 +17,7 @@ const Courses = () => {
       </p>
       <br />
 
-      <hr />
+      
 
       <div className="lg:grid lg:grid-cols-12 gap-4 mx-5 sm:none ">
         <div className="col-span-4 lg:col-span-2 mt-5">

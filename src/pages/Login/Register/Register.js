@@ -39,7 +39,7 @@ const Register = () => {
         setError("");
         form.reset();
         handleUpdateUserProfile(name, photoURL);
-        handleEmailVerification();
+        // handleEmailVerification();
         alert("Verify your email");
       })
       .catch((error) => console.error(error));
@@ -56,11 +56,11 @@ const Register = () => {
       .catch((error) => console.error(error));
   };
 
-  const handleEmailVerification = () => {
-    verifyEmail()
-      .then(() => {})
-      .catch((error) => console.error(error));
-  };
+  // const handleEmailVerification = () => {
+  //   verifyEmail()
+  //     .then(() => {})
+  //     .catch((error) => console.error(error));
+  // };
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">

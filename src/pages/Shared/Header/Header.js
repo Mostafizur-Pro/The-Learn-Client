@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar bg-ghost-300">
+      <div className="navbar border-b-2 mb-5 bg-ghost-300">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -107,7 +107,7 @@ const Header = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-inherit rounded-box w-52"
+                    className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-sky-200  rounded-box w-52"
                   >
                     <li>
                       <Link to="/profile" className="justify-between">
@@ -140,6 +140,7 @@ const Header = () => {
           Log out O
         </button> */}
       </div>
+
     </div>
   );
 };
