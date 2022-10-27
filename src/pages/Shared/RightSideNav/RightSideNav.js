@@ -6,7 +6,7 @@ const RightSideNav = () => {
 
   useEffect(() => {
     fetch(
-      "https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app//categories"
+      "https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app/categories"
     )
       .then((res) => res.json())
       .then((data) => setCategories(data));
