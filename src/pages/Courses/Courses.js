@@ -9,7 +9,7 @@ const Courses = () => {
   // console.log(courses);
   return (
     <div>
-      <div className="hero min-h-full  mb-5">
+      <div className="hero min-h-full md:grid hidden mb-5">
         <div className="hero-content flex-col lg:flex-row">
           <img alt="" src={image2} className="max-w-sm rounded-lg shadow-2xl" />
           <div className="ml-5 ">

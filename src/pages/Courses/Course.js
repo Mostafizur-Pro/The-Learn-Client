@@ -13,7 +13,9 @@ const Course = ({ params }) => {
 
   const handleDownload = () => {
     // console.log("event", event);
-    fetch(`http://localhost:5000/training/${id}`).then((response) => {
+    fetch(
+      `https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app//training/${id}`
+    ).then((response) => {
       response.blob().then((blob) => {
         // Creating new object of PDF file
         const fileURL = window.URL.createObjectURL(blob);

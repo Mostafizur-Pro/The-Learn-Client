@@ -21,7 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/categories"),
+        loader: () =>
+          fetch(
+            "https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app/categories"
+          ),
       },
       {
         path: "/course/:id",
@@ -31,7 +34,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/training/${params.id}`),
+          fetch(
+            `https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app/training/${params.id}`
+          ),
       },
       {
         path: "/category/:id",
@@ -41,7 +46,9 @@ export const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/categories/${params.id}`),
+          fetch(
+            `https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app/categories/${params.id}`
+          ),
       },
 
       {
