@@ -30,7 +30,6 @@ const Login = () => {
         console.log("hiuser", user);
         form.reset();
         setSuccess("Success login");
-
         navigate(from, { replace: true });
       })
       .catch((error) => {

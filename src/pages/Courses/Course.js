@@ -4,33 +4,50 @@ import { useLoaderData } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
+// import { useRef } from "react";
+
 const Course = ({ params }) => {
   const course = useLoaderData();
   // console.log("this is course", course);
   const { cost, rating, total_view, title, image_url, details } = course;
   // const courses = course;
 
-  const handleDownload = () => {
-    // console.log("event", event);
-    fetch(
-      "https://b610-lerning-platform-server-side-mostafizur-pro.vercel.app/training/01"
-    ).then((response) => {
-      response.blob().then((blob) => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob);
-        // Setting various property values
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "data.pdf";
-        alink.click();
-        // console.log("hihi", alink.download);
-      });
-    });
+  const printRef = React.useRef();
+
+  const handleDownload = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element);
+    const data = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("print.pdf");
   };
+  // const handleDownload = async () => {
+  //   // console.log("event", event);
+  //   // using Java Script method to get PDF file
+  //   fetch("SamplePDF.pdf").then((response) => {
+  //     response.blob().then((blob) => {
+  //       // Creating new object of PDF file
+  //       const fileURL = window.URL.createObjectURL(blob);
+  //       // Setting various property values
+  //       let alink = document.createElement("a");
+  //       alink.href = fileURL;
+  //       alink.download = "SamplePDF.pdf";
+  //       alink.click();
+  //     });
+  //   });
+  // };
 
   return (
     <div className="card m-none  w-auto rounded-5xl mx-auto bg-base-100 shadow-xl">
-      <div className=" flex-col ">
+      <div ref={printRef} className=" flex-col ">
         <figure className="px-10 pt-10">
           <img
             src={image_url}
